@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Techshop</title>
+        <meta charset="UTF-8"/>        
+
+    </head>
+
+    <body>
+        <section th:fragment="home">
+            <br/>
+            <!-- Carousel Bootstrap -->
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="..." class="d-block w-100 h-75" alt="..."/>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100 h-75" alt="..."/>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="..." class="d-block w-100 h-75" alt="..."/>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <h1 style="text-align: center"><b>Bienvenido a Distribuidora Hikisa</b></h1>
+            <br/>
+
+        </section>
+
+
+    </body>
+</html>
