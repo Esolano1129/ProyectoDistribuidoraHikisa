@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- Carrito de Compras - Distribuidora Hikisa -->
+<html  
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:fragment="head">
+        <title>Carrito de Compras - Distribuidora Hikisa</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="css/estilos.css"/>
+    </head>
+
+    <body>
+        <header>
+            <nav style="background-color: #1a1a1a; padding: 15px; display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <!-- Corregí la sintaxis para asegurar que el enlace sea funcional -->
+                <a class="logo nav-link" th:href="@{/}" href="/" style="color: white; font-size: 24px; text-decoration: none; font-weight: bold; cursor: pointer;">Distribuidora Hikisa</a>
+                <ul class="nav-menu" style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0;">
+                    <li class="nav-menu-item"> <a class="nav-link nav-menu-link" href="ofertas.html" style="color: red; text-decoration: none; font-size: 18px;">Ofertas</a> </li>
+                    <li class="nav-menu-item"> <a class="nav-link nav-menu-link" href="carrito.html" style="color: red; text-decoration: none; font-size: 18px;">Carrito</a> </li>
+                    <li class="nav-menu-item"> <a class="nav-link nav-menu-link" href="#" style="color: red; text-decoration: none; font-size: 18px;">Idioma &#9662;</a> </li>
+                </ul>
+            </nav>
+        </header>
+        
+        <aside style="background-color: red; color: white; padding: 20px; text-align: center; font-size: 40px; margin-top: -5px; width: 100%;">
+            Carrito de Compras
+        </aside>
+        
+        <section style="background-color: #222; color: white; padding: 20px; border-radius: 5px; margin: 20px auto; width: 80%;">
+            <h3 style="text-align: left;">MI CARRITO DE COMPRAS</h3>
+            <div class="producto-carrito" style="display: flex; justify-content: space-between; align-items: center; background-color: #333; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
+                <img src="img/salchichon.jpg" width="80" alt="Producto 1"/>
+                <span>Salchichón con Chile</span>
+                <span>₡2500</span>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+            <div class="producto-carrito" style="display: flex; justify-content: space-between; align-items: center; background-color: #333; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
+                <img src="img/queso.jpg" width="80" alt="Producto 2"/>
+                <span>Queso Amarillo</span>
+                <span>₡4000</span>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+            <div class="producto-carrito" style="display: flex; justify-content: space-between; align-items: center; background-color: #333; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
+                <img src="img/higado.jpg" width="80" alt="Producto 3"/>
+                <span>Hígado</span>
+                <span>₡17.500</span>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+            <button style="background-color: red; color: white; padding: 10px 20px; border: none; font-size: 18px; cursor: pointer; width: 100%;">PAGAR</button>
+        </section>
+
+        <footer style="background-color: black; color: white; text-align: center; font-size: 18px; padding: 20px; width: 100%;">
+            <p>Todos Los Derechos Reservados 2025 &COPY;</p>
+        </footer>
+    </body>
+</html>
