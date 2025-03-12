@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Categorias</title>
+        <meta charset="UTF-8"/>
+
+    </head>
+
+    <body>
+
+        <header th:replace="~{layout/plantilla :: header}">
+
+        </header>
+        <section class="d-flex justify-content-center align-items-center">
+            <h1 class="text-center">Catálogo de productos</h1>
+        </section>
+
+        <section>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Buscar categorías</a>
+                    <form class="d-flex ms-auto" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar por nombre" aria-label="Buscar">
+                        <button class="btn btn-outline-light" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </nav>
+        </section>
+
+        <!-- Carnes Rojas -->
+        <section class="container py-5">
+        <div class="row">
+            <!-- Carnes Rojas -->
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <img src="https://discouy.vtexassets.com/arquivos/guia-cocina-carne-roja-puntos-de-coccion.png" class="card-img-top" alt="Carnes Rojas" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h3 class="card-title">Carnes rojas</h3>
+                        <p class="card-text">Elige entre una variedad de cortes frescos de carne.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Carnes Blancas -->
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/034/763/851/small_2x/ai-generated-raw-chicken-meat-free-png.png" class="card-img-top" alt="Carnes Blancas" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h3 class="card-title">Carnes blancas</h3>
+                        <p class="card-text">Selecciona lo mejor de pollo y pavo.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Promociones -->
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/372/372856.png" class="card-img-top" alt="Promociones" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h3 class="card-title">Promociones</h3>
+                        <p class="card-text">Descubre las ofertas especiales de la semana.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Combos -->
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="https://png.pngtree.com/png-vector/20230318/ourmid/pngtree-red-combo-offer-vector-png-image_6655375.png" class="card-img-top" alt="Combos"style="height: 200px; object-fit: cover;">
+                        <h3 class="card-title">Combos</h3>
+                        <p class="card-text">Obtén combinaciones de productos a precios especiales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        
+           <section class="container text-center py-5">
+                <a href="/acerca-de-nosotros" class="btn btn-primary btn-lg">Acerca de Nosotros</a>
+            </section>
+
+        <section th:replace="~{layout/plantilla :: footer}">
+        </section>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
