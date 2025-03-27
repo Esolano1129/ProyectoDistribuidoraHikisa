@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Ofertas - Distribuidora Hikisa -->
+<html>  
+
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Ofertas</title>
+        <meta charset="UTF-8"/>
+    </head>
+
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"></header>
+
+        <section class="text-center py-3">
+            <h1 class="fw-bold text-dark display-4 position-relative d-inline-block">
+                Ofertas
+                <span class="d-block mx-auto mt-2" style="width: 80px; height: 4px; background-color: #FF0000;"></span>
+            </h1>
+        </section>
+
+        <section class="container py-5">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <img src="https://discouy.vtexassets.com/arquivos/guia-cocina-carne-roja-puntos-de-coccion.png" class="card-img-top" alt="Carnes Rojas" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h3 class="card-title">Oferta</h3>
+                            <p class="card-text">Ofertasd de carne roja</p>
+                            <a href="#" class="btn btn-danger btn-lg">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section th:replace="~{layout/plantilla :: footer}"></section>
+    </body>
+</html>

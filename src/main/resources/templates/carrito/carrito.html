@@ -1,32 +1,21 @@
 <!DOCTYPE html>
-<!-- Carrito de Compras - Distribuidora Hikisa -->
-<html  
-    xmlns="http://www.w3.org/1999/xhtml" 
-    xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
-    <head th:fragment="head">
-        <title>Carrito de Compras - Distribuidora Hikisa</title>
+<html>  
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Carrito</title>
         <meta charset="UTF-8"/>
-        <link rel="stylesheet" href="css/estilos.css"/>
     </head>
 
     <body>
-        <header>
-            <nav style="background-color: #1a1a1a; padding: 15px; display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                <!-- Corregí la sintaxis para asegurar que el enlace sea funcional -->
-                <a class="logo nav-link" th:href="@{/}" href="/" style="color: white; font-size: 24px; text-decoration: none; font-weight: bold; cursor: pointer;">Distribuidora Hikisa</a>
-                <ul class="nav-menu" style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0;">
-                    <li class="nav-menu-item"> <a class="nav-link nav-menu-link" href="ofertas.html" style="color: red; text-decoration: none; font-size: 18px;">Ofertas</a> </li>
-                    <li class="nav-menu-item"> <a class="nav-link nav-menu-link" href="carrito.html" style="color: red; text-decoration: none; font-size: 18px;">Carrito</a> </li>
-                    <li class="nav-menu-item"> <a class="nav-link nav-menu-link" href="#" style="color: red; text-decoration: none; font-size: 18px;">Idioma &#9662;</a> </li>
-                </ul>
-            </nav>
-        </header>
-        
-        <aside style="background-color: red; color: white; padding: 20px; text-align: center; font-size: 40px; margin-top: -5px; width: 100%;">
-            Carrito de Compras
-        </aside>
-        
+        <header th:replace="~{layout/plantilla :: header}"></header>
+
+        <section class="text-center py-3">
+            <h1 class="fw-bold text-dark display-4 position-relative d-inline-block">
+                Carrito de compras
+                <span class="d-block mx-auto mt-2" style="width: 80px; height: 4px; background-color: #FF0000;"></span>
+            </h1>
+        </section>
+
+
         <section style="background-color: #222; color: white; padding: 20px; border-radius: 5px; margin: 20px auto; width: 80%;">
             <h3 style="text-align: left;">MI CARRITO DE COMPRAS</h3>
             <div class="producto-carrito" style="display: flex; justify-content: space-between; align-items: center; background-color: #333; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
@@ -62,8 +51,6 @@
             <button style="background-color: red; color: white; padding: 10px 20px; border: none; font-size: 18px; cursor: pointer; width: 100%;">PAGAR</button>
         </section>
 
-        <footer style="background-color: black; color: white; text-align: center; font-size: 18px; padding: 20px; width: 100%;">
-            <p>Todos Los Derechos Reservados 2025 &COPY;</p>
-        </footer>
+        <section th:replace="~{layout/plantilla :: footer}"></section>
     </body>
 </html>

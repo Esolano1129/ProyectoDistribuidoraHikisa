@@ -22,67 +22,67 @@
 
     <body>
         <header th:fragment="header" class="header">
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+            <nav class="navbar navbar-expand-sm bg-dark shadow p-2" style="border-bottom: 3px solid #FF0000;">
                 <div class="container">
-                    <a th:href="@{/}" class="navbar-brand">[[#{aplicacion.titulo}]]</a>
-                    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <!-- Logo -->
+                    <a th:href="@{/}" class="navbar-brand text-white fw-bold">[[#{aplicacion.titulo}]]</a>
+                    
+                    <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <ul class="navbar-nav">
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/categorias}" style="color:red">Categorias</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/producto/listado}" style="color:red">[[#{plantilla.productos}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" href="/carrito.html" style="color:red">Carrito</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" href="/ofertas.html" style="color:red">Ofertas</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" href="/sobre-nosotros.html" style="color:red">Sobre Nosotros</a></li>
-
+                            <li class="nav-item px-3"><a class="nav-link text-danger fw-bold hover-white" th:href="@{/categoria/categorias}">Categorías</a></li>
+                            <li class="nav-item px-3"><a class="nav-link text-danger fw-bold hover-white" th:href="@{/productos/productos}">[[#{plantilla.productos}]]</a></li>
+                            <li class="nav-item px-3"><a class="nav-link text-danger fw-bold hover-white" th:href="@{/carrito/carrito}">Carrito</a></li>
+                            <li class="nav-item px-3"><a class="nav-link text-danger fw-bold hover-white" th:href="@{/ofertas/ofertas}">Ofertas</a></li>
+                            <li class="nav-item px-3"><a class="nav-link text-danger fw-bold hover-white" th:href="@{/sobreNosotros/sobre-nosotros}">Sobre Nosotros</a></li>
                         </ul>
+
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" 
-                                   data-bs-toggle="dropdown" 
-                                   href="#" role="button" 
-                                   aria-expanded="false" style="color:red">[[#{plantilla.idioma}]]</a>
+                                <a class="nav-link dropdown-toggle text-danger fw-bold" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                    [[#{plantilla.idioma}]]
+                                </a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" th:href="@{/(lang=es)}" style="color:red">Español</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/(lang=en)}" style="color:red">English</a></li>                  
+                                    <li><a class="dropdown-item text-danger fw-bold hover-white" th:href="@{/(lang=es)}">Español</a></li>
+                                    <li><a class="dropdown-item text-danger fw-bold hover-white" th:href="@{/(lang=en)}">English</a></li>                  
                                 </ul>
                             </li>
                         </ul>
-                        <div id="resultBlock">
-                        </div>
+
+                        <div id="resultBlock"></div>
                     </div>
                 </div>
             </nav>
         </header>
-        
-         
 
-        <footer th:fragment="footer" class="p-2 mt-5 bg-dark text-white"> 
+
+        <footer th:fragment="footer" class="p-4 mt-5 bg-dark text-white text-center"> 
             <h3>Contáctenos</h3>
             <p>Síguenos en nuestras redes sociales:</p>
-            <div class="social-icons">
+
+            <div class="social-icons d-flex justify-content-center gap-3">
                 <a href="https://www.facebook.com" target="_blank" title="Facebook">
-                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-facebook-square fa-2x"></i>
                 </a>
                 <a href="https://twitter.com" target="_blank" title="Twitter">
-                    <i class="fab fa-twitter-square"></i>
+                    <i class="fab fa-twitter-square fa-2x"></i>
                 </a>
                 <a href="https://www.instagram.com" target="_blank" title="Instagram">
-                    <i class="fab fa-instagram-square"></i>
+                    <i class="fab fa-instagram-square fa-2x"></i>
                 </a>
                 <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-linkedin fa-2x"></i>
                 </a>
             </div>
 
-       
-            <p class="text-center lead">&COPY;[[#{plantilla.derechos}]]</p>
+            <p class="text-center mt-3">&copy; [[#{plantilla.derechos}]]</p>
+
             <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-
-
-
         </footer>
+
 
     </body>
 
