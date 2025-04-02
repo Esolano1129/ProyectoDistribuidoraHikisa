@@ -19,20 +19,20 @@ public class ProductoController {
     public String listado(Model model) {
         var lista = ProductoService.getProductos();
         model.addAttribute("productos", lista);
-        return "/Productos/listado";
+        return "/productos/listado";
     }
 
 
     @GetMapping("/eliminar/{idProducto}")
     public String eliminar(Producto Producto) {
         ProductoService.delete(Producto);
-        return "redirect:/Productos/listado";
+        return "redirect:/productos/listado";
     }
 
     @GetMapping("/modificar/{idProducto}")
     public String modificar(Producto Producto, Model model) {
         Producto = ProductoService.getProducto(Producto);
         model.addAttribute("producto", Producto);
-        return "/Productos/modifica";
+        return "producto/editarProducto";
     }
 }
