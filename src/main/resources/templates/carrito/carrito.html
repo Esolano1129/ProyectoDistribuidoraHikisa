@@ -1,8 +1,48 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>  
     <head th:replace="~{layout/plantilla :: head}">
         <title>Carrito</title>
         <meta charset="UTF-8"/>
+        <style>
+            .container-carrito {
+                width: 80%;
+                margin: 40px auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .carrito-items, .resumen-pedido {
+                width: 48%;
+                border: 1px solid #ddd;
+                padding: 20px;
+                border-radius: 5px;
+                background-color: #fff;
+            }
+            .producto {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+            }
+            .btn-finalizar {
+                background-color: black;
+                color: white;
+                padding: 10px;
+                text-align: center;
+                cursor: pointer;
+                width: 100%;
+                margin-top: 10px;
+                border: none;
+            }
+            input[type="number"] {
+                padding: 5px;
+                width: 70px;
+                text-align: center;
+            }
+        </style>
     </head>
 
     <body>
@@ -15,40 +55,37 @@
             </h1>
         </section>
 
+        <section class="container-carrito">
+            <div class="carrito-items">
+                <h3>Mi carrito</h3>
 
-        <section style="background-color: #222; color: white; padding: 20px; border-radius: 5px; margin: 20px auto; width: 80%;">
-            <h3 style="text-align: left;">MI CARRITO DE COMPRAS</h3>
-            <div class="producto-carrito" style="display: flex; justify-content: space-between; align-items: center; background-color: #333; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
-                <img src="img/salchichon.jpg" width="80" alt="Producto 1"/>
-                <span>Salchichón con Chile</span>
-                <span>₡2500</span>
-                <select>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                </select>
+                <div class="producto">
+                    <span>Salchichón con Chile</span>
+                    <input type="number" value="1" min="1">
+                    <span>₡2500</span>
+                </div>
+
+                <div class="producto">
+                    <span>Queso Amarillo</span>
+                    <input type="number" value="1" min="1">
+                    <span>₡4000</span>
+                </div>
+
+                <div class="producto">
+                    <span>Hígado</span>
+                    <input type="number" value="1" min="1">
+                    <span>₡17.500</span>
+                </div>
             </div>
-            <div class="producto-carrito" style="display: flex; justify-content: space-between; align-items: center; background-color: #333; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
-                <img src="img/queso.jpg" width="80" alt="Producto 2"/>
-                <span>Queso Amarillo</span>
-                <span>₡4000</span>
-                <select>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                </select>
+
+            <div class="resumen-pedido">
+                <h3>Resumen del pedido</h3>
+                <p>Subtotal: ₡24.000</p>
+                <p>Envío: <a href="#">Calcular envío</a></p>
+                <hr>
+                <h4>Total: ₡24.000</h4>
+                <button class="btn-finalizar">Finalizar compra</button>
             </div>
-            <div class="producto-carrito" style="display: flex; justify-content: space-between; align-items: center; background-color: #333; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
-                <img src="img/higado.jpg" width="80" alt="Producto 3"/>
-                <span>Hígado</span>
-                <span>₡17.500</span>
-                <select>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                </select>
-            </div>
-            <button style="background-color: red; color: white; padding: 10px 20px; border: none; font-size: 18px; cursor: pointer; width: 100%;">PAGAR</button>
         </section>
 
         <section th:replace="~{layout/plantilla :: footer}"></section>
