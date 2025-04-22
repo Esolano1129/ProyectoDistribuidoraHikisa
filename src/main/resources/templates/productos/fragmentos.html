@@ -39,14 +39,15 @@
                             <h5 class="modal-title">[[#{producto.agregar}]]</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> 
-                        <form th:action="@{/producto/guardar}" th:object="${producto}"
+                        <form th:action="@{/productos/guardar}" th:object="${producto}"
                               method="POST" class="was-validated" enctype="multipart/form-data">
+
+
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label>[[#{producto.categoria}]]</label>
-                                    <select class="form-select" name="categoria.idCategoria">                                        
-                                        <option th:each="c : ${categorias}" th:value="${c.idCategoria}">
-                                            [[${c.descripcion}]]</option>
+                                    <select class="form-select" th:field="*{categoria.id}">
+                                        <option th:each="c : ${categorias}" th:value="${c.id}" th:text="${c.descripcion}"></option>
                                     </select>
                                 </div>
 
@@ -128,7 +129,7 @@
                                         <td>[[${c.existencias}]]</td>
                                         <td>[[${c.precio}*${c.existencias}]]</td>
                                         <td th:text="${c.categoria != null ? c.categoria.descripcion : 'Sin categoría'}"></td>
-                                        <td th:text="${c.activo} ? 'Activa' : 'Inactiva'" />
+                                        <td th:text="${c.activo} ? 'Activa' : 'Inactiva'"></td>
                                         <td><a th:href="@{/producto/eliminar/}+${c.idProducto}"
                                                class="btn btn-danger">
                                                 <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
@@ -187,9 +188,9 @@
                                     <div class="mb-3">
                                         <label>[[#{producto.categoria}]]</label>
                                         <select class="form-select" 
-                                                name="categoria.idCategoria"
-                                                th:field="*{categoria.idCategoria}">                                        
-                                            <option th:each="c : ${categorias}" th:value="${c.idCategoria}">
+                                                name="categoria.id"
+                                                th:field="*{categoria.id}">                                        
+                                            <option th:each="c : ${categorias}" th:value="${c.id}">
                                                 [[${c.descripcion}]]</option>
                                         </select>
                                     </div>

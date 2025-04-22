@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,7 +23,12 @@ public class ProductoController {
     @GetMapping("/listado")
     public String listado(Model model) {
         var lista = ProductoService.getProductos();
+        var categorias = categoriaService.getCategorias(); // <-- Agrega esta línea
+
         model.addAttribute("productos", lista);
+        model.addAttribute("categorias", categorias); // <-- Y esta también
+        model.addAttribute("producto", new Producto()); // Para el form
+
         return "/productos/listado";
     }
 
@@ -37,6 +43,12 @@ public class ProductoController {
         Producto = ProductoService.getProducto(Producto);
         model.addAttribute("producto", Producto);
         return "producto/editarProducto";
+    }
+
+    @PostMapping("/guardar")
+    public String guardar(Producto producto) {
+        ProductoService.save(producto);
+        return "redirect:/productos/listado";
     }
 
     @Autowired
@@ -59,6 +71,5 @@ public class ProductoController {
 
         return "redirect:/categoria/categorias"; // ← Redirige a lista de categorías si no encuentra
     }
-
 
 }
