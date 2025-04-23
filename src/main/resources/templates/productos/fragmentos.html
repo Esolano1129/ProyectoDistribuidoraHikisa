@@ -130,11 +130,9 @@
                                         <td>[[${c.precio}*${c.existencias}]]</td>
                                         <td th:text="${c.categoria != null ? c.categoria.descripcion : 'Sin categoría'}"></td>
                                         <td th:text="${c.activo} ? 'Activa' : 'Inactiva'"></td>
-                                        <td><a th:href="@{/producto/eliminar/}+${c.idProducto}"
-                                               class="btn btn-danger">
+                                        <td><a th:href="@{/productos/eliminar/{id}(id=${producto.idProducto})}" class="btn btn-danger">
                                                 <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
-                                            <a th:href="@{/producto/modificar/}+${c.idProducto}"
-                                               class="btn btn-success">
+                                            <a th:href="@{/productos/modificar/{id}(id=${c.idProducto})}" class="btn btn-success">
                                                 <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a>
                                         </td>
                                     </tr>
@@ -155,7 +153,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <form method="POST"
-                          th:action="@{/producto/guardar}" 
+                          th:action="@{/productos/guardar}" 
                           th:object="${producto}"
                           class="was-validated"                          
                           enctype="multipart/form-data">
@@ -168,8 +166,7 @@
                                 </a>
                             </div>
                             <div class="col-md-4 d-grid">                                
-                                <a th:href="@{/producto/eliminar/}+${producto.idProducto}"
-                                   class="btn btn-danger">
+                                <a th:href="@{/productos/eliminar/{id}(id=${producto.idProducto})}" class="btn btn-danger">
                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                                 </a>
                             </div>

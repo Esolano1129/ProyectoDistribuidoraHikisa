@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.UUID;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/productos")
@@ -42,11 +48,29 @@ public class ProductoController {
     public String modificar(Producto Producto, Model model) {
         Producto = ProductoService.getProducto(Producto);
         model.addAttribute("producto", Producto);
-        return "producto/editarProducto";
+        model.addAttribute("categorias", categoriaService.getCategorias());
+        return "productos/modifica";
     }
 
     @PostMapping("/guardar")
-    public String guardar(Producto producto) {
+    public String guardar(Producto producto, @RequestParam("imagenFile") MultipartFile imagenFile) {
+        try {
+            if (!imagenFile.isEmpty()) {
+                String ruta = "/imagenes/";
+                String nombreArchivo = UUID.randomUUID().toString() + "_" + imagenFile.getOriginalFilename();
+
+                Path directorio = Paths.get("src/main/resources/static" + ruta);
+                Files.createDirectories(directorio);
+
+                Path archivo = directorio.resolve(nombreArchivo);
+                imagenFile.transferTo(archivo.toFile());
+
+                producto.setRutaImagen(ruta + nombreArchivo);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         ProductoService.save(producto);
         return "redirect:/productos/listado";
     }
