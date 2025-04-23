@@ -12,7 +12,7 @@
             <div class="container">
                 <h2 class="text-center fw-bold" th:text="${categoria.nombre}"></h2>
                 <div class="row">
-                    <div class="col-md-3" th:each="producto : ${productos}">
+                    <div class="col-md-4" th:each="producto : ${productos}">
                         <div class="card text-center">
                             <img th:src="${producto.rutaImagen}" class="card-img-top" alt="Producto" style="height: 200px; object-fit: cover;">
                                 <div class="card-body">
