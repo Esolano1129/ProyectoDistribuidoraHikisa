@@ -1,7 +1,6 @@
+<!-- src/main/resources/templates/ofertas/ofertas.html -->
 <!DOCTYPE html>
-<!-- Ofertas - Distribuidora Hikisa -->
-<html>  
-
+<html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{layout/plantilla :: head}">
         <title>Ofertas</title>
         <meta charset="UTF-8"/>
@@ -17,22 +16,10 @@
             </h1>
         </section>
 
-        <section class="container py-5">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="card text-center">
-                        <img src="https://discouy.vtexassets.com/arquivos/guia-cocina-carne-roja-puntos-de-coccion.png" class="card-img-top" alt="Carnes Rojas" style="height: 200px; object-fit: cover;">
-                        <div class="card-body">
-                            <h3 class="card-title">Oferta</h3>
-                            <p class="card-text">Ofertasd de carne roja</p>
-                            <a href="#" class="btn btn-danger btn-lg">Ver más</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <h1 th:text="${ofertas != null && #lists.size(ofertas) > 0 ? #lists.size(ofertas) + ' ofertas encontradas' : 'No hay ofertas disponibles'}">Cargando...</h1>
 
 
+        <section class="container py-5" th:replace="~{ofertas/fragmentos :: listado}"></section>
 
         <section th:replace="~{layout/plantilla :: footer}"></section>
     </body>

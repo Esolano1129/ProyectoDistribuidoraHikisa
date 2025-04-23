@@ -1,0 +1,27 @@
+<!-- src/main/resources/templates/ofertas/fragmentos.html -->
+<section th:fragment="listado">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" th:each="oferta : ${ofertas}">
+            <div class="card h-100">
+                <img th:src="${oferta.producto.rutaImagen}" class="card-img-top" alt="..."/>
+
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${oferta.nombre}">Oferta</h5>
+                    <p class="card-text" th:text="${oferta.descripcion}"></p>
+                    <p class="card-text">
+                        <strong>Producto:</strong> <span th:text="${oferta.producto.nombre}"></span><br/>
+                        <strong>Descuento:</strong> <span th:text="${oferta.descuento}"></span>%<br/>
+                        <strong>Precio final:</strong> 
+                        <span th:text="${#numbers.formatDecimal(oferta.producto.precio * (1 - oferta.descuento / 100), 1, 2)}"></span> 
+                        <span style="text-decoration:line-through; color:gray;" th:text="${oferta.producto.precio}"></span>
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a th:href="@{'/carrito/agregar/' + ${oferta.producto.id}}" class="btn btn-outline-success">
+                        <i class="fas fa-cart-plus"></i> Agregar al carrito
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
